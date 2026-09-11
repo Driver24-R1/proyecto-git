@@ -1,0 +1,4 @@
+//tenemos los codigos antiguos en el github
+//hacer un sistema mas avansado del arboleda
+//no te nemos las texturas asi que iniciaremos desde cero en esa parte
+//
