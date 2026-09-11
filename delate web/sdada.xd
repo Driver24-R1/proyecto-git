@@ -1,0 +1,117 @@
+/* ===== VARIABLES ===== */
+:root {
+  --yt-bg: #0f0f0f;
+  --yt-header: rgba(20, 20, 20, 0.85);
+  --yt-hover: #272727;
+  --yt-chip: #272727;
+  --yt-text: #ffffff;
+  --yt-gray: #aaaaaa;
+  --yt-border: #4e4e4e;
+
+  /* Control global de tamaños */
+  --control-height: 44px;
+  --control-radius: 16px;
+  --control-font-size: 14px;
+}
+
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: var(--yt-text);
+  padding-top: 56px;
+  font-family: Arial, sans-serif;
+}
+
+/* Fondo borroso */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  transform: scale(1.03);
+  z-index: -1;
+}
+
+.poemas-box {
+  max-width: 350px;
+  margin: 30px auto;
+  padding: 18px;
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid var(--yt-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.poemas-box h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+.poemas-box form {
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+form .Texto {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.Texto label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Texto input,
+.Texto textarea {
+  width: 100%;
+  font-size: var(--control-font-size);
+  border: 1px solid var(--yt-border);
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: var(--control-radius);
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Ambos controles comparten mismo padding/altura visual */
+.Texto input {
+  height: var(--control-height);
+  padding: 0 14px;
+}
+
+.Texto textarea {
+  min-height: 120px;
+  padding: 12px 14px;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+/* ===== Enviar datos ===== */
+input[type="submit"] {
+  width: 100%;
+  height: var(--control-height);
+  border: 1px solid var(--yt-border);
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 25px;
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  border-color: aqua;
+  transition: 0.3s;
+}

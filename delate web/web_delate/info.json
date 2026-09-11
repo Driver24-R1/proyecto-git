@@ -1,0 +1,40 @@
+{
+  "yohancruzvicente2@gmail.com": {
+    "nombres": "yohan",
+    "apellidos": "cruz vicente",
+    "password": "xd",
+    "iniciales": "YC",
+    "fechaRegistro": "2026-02-01",
+    "Poemas": [
+      {
+        "name": "la luz",
+        "fecha": "hoy",
+        "text": "nose"
+      },
+      {
+        "name": "xd",
+        "text": "xd",
+        "fecha": "2026-02-06"
+      },
+      {
+        "name": "gg",
+        "text": "ff",
+        "fecha": "2026-02-10"
+      }
+    ]
+  },
+  "yohancruzvicente7@gmail.com": {
+    "nombres": "yohan",
+    "apellidos": "Vicente cruz",
+    "password": "ff",
+    "iniciales": "YV",
+    "fechaRegistro": "2026-02-05",
+    "Poemas": [
+      {
+        "name": "XD gg",
+        "text": "Hola",
+        "fecha": "2026-02-06"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+Bloques (~800):
+Construcción: ~450 (Rocas, maderas, ladrillos).
+Decoración: ~180 (Vidrio, terracota, lana, estandartes).
+Naturales: ~120 (Tierra, plantas, corales).
+Mecanismos: ~50 (Pistones, observadores, tolvas).
+
+Objetos / Materiales (~520):
+Materia Prima: ~100 (Lingotes, gemas, pepitas).
+Comida: ~40 (Frutas, carnes, guisos).
+Ingredientes: ~150 (Tintes, ingredientes de pociones, pólvora).
+Varios: ~230 (Libros, discos, mapas, huevos de spawn).
+
+Herramientas (~130):
+Recolección: ~35 (Picos, palas, hachas de todos los materiales).
+Utilidad/Transporte: ~95 (Barcos, vagonetas, brújulas, mecheros).
+
+Equipamiento (~120):
+Armaduras: ~70 (Todas las piezas y materiales).
+Armas: ~35 (Espadas, arcos, ballestas, tridentes).
+Accesorios: ~15 (Élitros, escudos, tótems).

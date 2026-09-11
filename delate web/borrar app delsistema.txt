@@ -1,0 +1,46 @@
+
+
+
+desabilitar
+adb shell pm disable-user --user 0 nombre del paquete
+desinstalar
+adb shell pm uninstall --user 0 nombre del paquete
+
+
+buscar
+adb shell pm list packages | findstr nombre del paquete
+
+
+
+
+install sshd
+pkg install openssh -y
+contraseña ovligatorio
+passwd
+
+
+para conectarme a termux del celular
+ssh u0_a248@192.168.1.125 -p 8022
+
+mover archivo de mi pc al celular
+scp -P 8022 -r "Ruta" u0_a248@192.168.1.125:/data/data/com.termux/files/home/(name) nombre de la carpeta donde se va a mover los archivos
+
+
+
+
+prender server desde node
+cd ~/web/web_poemas
+node server.js
+
+cambiar ruta
+cloudflared tunnel --url http://localhost:8080
+
+
+
+remplazar mi carpeta de la web
+deves estar en la carpeta de tu web para ejecuarlo
+scp -P 8022 -r public u0_a248@192.168.1.68:/data/data/com.termux/files/home/web/web_poemas/
+
+npm install
+
+npm install express-session
