@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    /* IMAGEN DE FONDO */
+    background-image: url("../png/fondo_1.jpeg");
+
+    /* ajustar imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    color: white;
+    text-align: center;
+
+    height: 100vh;
+}
+
+
+.crear-box {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 10px;
+
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid var(--yt-border);
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.crear-box h1 {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.crear-box form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.fila {
+  display: flex;
+  gap: 25px;
+}
+
+.fila .correo {
+  flex: 1; /* ambos ocupan lo mismo */
+}
+
+.contenido textarea {
+  width: 100%;
+  padding: 10px 10px;
+  height: auto;
+  font-size: 14px;
+  border: 1px solid var(--yt-border);
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  color: #ffffff;
+  resize: none;
+  outline: none;
+  line-height: 1;
+
+  min-height: 200px;   /* Equivale aproximadamente a 3 o 4 líneas iniciales de espacio */
+  
+  /* 🔥 AQUÍ ESTÁ EL TRUCO: Oculta por completo cualquier barra de scroll */
+  overflow: hidden; 
+  
+  /* Nota: Si quieres que crezca para siempre, NO le pongas max-height. */
+  /* Si prefieres ponerle un límite gigante, puedes usar: max-height: 600px; */
+}
+
+.correo input {
+  width: 100%;
+  padding: 0 10px;
+  height: 25px;
+  font-size: 12px;
+  border: 1px solid var(--yt-border);
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  color: #ffffff;
+}
+.correo, .contenido {
+  width: 100%;
+  margin: 5px auto; /* Les da espacio vertical y los centra horizontalmente */
+  text-align: center;
+}
+
+
+/* ===== Enviar datos =====*/
+input[type="submit"] {
+  width: 540px;
+  height: 40px;
+  border: 1 solid;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 25px;
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+input[type="submit"]:hover {
+  border-color: aqua;
+  transition: .5s;
+}
+
+@media (max-width: 480px) {
+  .crear-box {
+    max-width: 350px;
+    margin: 25px auto;
+    padding: 20px;
+  }
+
+  /* 🔥 TODO LO QUE ESTÉ DENTRO DEL FORM SE CENTRALIZA AQUÍ */
+  .crear-box form {
+    padding: 0 10px;
+    text-align: center; /* Centra textos sueltos, títulos y labels */
+  }
+
+  /* 🔥 Centra las cajas contenedoras de los inputs (Title, Musica, etc.) */
+  .correo, .contenido {
+    margin: 12px auto; /* Les da espacio vertical y los centra horizontalmente */
+  }
+
+  .correo input {
+    margin: 0 -10px;
+    padding: 2px 10px;
+  }
+
+  .fila {
+    gap: 22px;
+  }
+
+  .fila .correo {
+    flex: 1; /* Ambos ocupan lo mismo en la misma línea */
+    margin: 0;
+  }
+
+  /* Cuadro de texto del poema completamente centrado */
+  .contenido textarea {
+    width: 100%;
+    min-height: 400px;
+    margin: 0 -10px; /* Centra la caja del textarea */
+  }
+
+  input[type="submit"] {
+    width: 100px;
+  }
+}
+
+

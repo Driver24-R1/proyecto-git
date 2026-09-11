@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Poemas</title>
+    <link rel="icon" type="image/png" href="../png/logo.png">
+    <link rel="stylesheet" href="crear.css">
+  </head>
+  
+  <body>
+    <div class="crear-box">
+      <div class="cuadro grande">
+        <h1>Crear Poema</h1>
+        <form method="post" id="CrearForm">
+          <div class="fila">
+            <div class="correo">
+              <label>Nombre</label>
+              <input type="text" placeholder="Nombre del poema" id="title-crear" required>
+            </div>
+
+            <!--
+            <div class="correo">
+              <label>Musica</label>
+              <input type="url" placeholder="Ejemplo: https://youtu.be/CTCM9eXZPzU" id="musica-crear">
+            </div>
+          -->
+          </div>
+
+          <div class="contenido">
+            <label>Contenido</label>
+            <textarea id="contenido-crear" placeholder="Escribe los versos de tu poema aquí..." rows="1"></textarea>
+          </div>
+          <input type="submit" id="Enviar" value="Enviar">
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // crear cliente INMEDIATO (sin delay)
+    window.client = supabase.createClient(
+      "https://cgbwdcwfjrtjqmmstnrr.supabase.co",
+      "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+    );
+  </script>
+  <script src="crear.js"></script>
+</html>

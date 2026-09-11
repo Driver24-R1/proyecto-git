@@ -1,0 +1,338 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    /* IMAGEN DE FONDO */
+    background-image: url("../png/fondo_1.jpeg");
+
+    /* ajustar imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+
+    height: 100vh;
+
+}
+
+/* TITULO */
+h1 {
+    color: #696969;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+
+.pantalla {
+  margin: 0;
+  margin-top: 40px;
+  padding: 10px; /* Le da un espacio limpio con los bordes de la pantalla */
+}
+
+.cuadro {
+  background: rgba(255,255,255,0.1);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.grande {
+    width: 400px;
+}
+
+.subtitulo {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.oculto {
+    display: none;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Alinea los cuadros a la izquierda */
+  gap: 15px;                   /* Distancia perfecta y uniforme entre los cuadros */
+  flex-wrap: wrap;             /* Si no entran más en la pantalla, bajan a la siguiente fila */
+  margin-top: 20px;
+  width: 100%;
+}
+
+
+.card {
+  background: #000000;
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white; 
+
+  /* 2px de grosor, estilo sólido y color blanco */
+  border: 1px solid white; 
+
+  /* 👈 Dimensiones para hacerlos cuadrados perfectos */
+  width: 150px;
+  height: 150px;
+
+  /* Centra el texto o contenido dentro de cada cuadrado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: white;
+  color: #000000;
+  
+  /* Aquí sí puedes usar border-color porque el estilo 'solid' ya fue heredado arriba */
+  border-color: black; 
+}
+
+
+
+/*====== Header ======*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: var(--yt-header);
+  z-index: 1000;
+  border-bottom: 1px solid var(--yt-border);
+}
+
+.header .container {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: rgba(20, 20, 20, 0.90);
+}
+
+/*====== Izquierda ======*/
+.star {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-menu label {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: white;
+}
+
+.btn-menu label:hover {
+  background: var(--yt-hover);
+}
+
+.logo img {
+  height: 36px;
+  border-radius: 50%;
+}
+
+/*====== Derecha ======*/
+.conterniner-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-crear  {
+  min-width: 36px;
+  height: 36px;
+  padding: 12px 16px;
+
+  border-radius: 999px;
+  background: rgba(20, 20, 20, 0.90);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-crear:hover {
+  background: #3f3f3f;
+}
+
+/*===== icono del user =====*/
+.user-wrapper {
+  position: relative;
+}
+.user-circle {
+  min-width: 18px;
+  height: 36px;
+  padding: 0 12px;
+
+  border-radius: 999px; /* píldora / círculo */
+  background: rgba(20, 20, 20, 0.90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.user-circle:hover {
+  background: #3f3f3f;
+}
+
+#btn-user {
+  display: none;
+}
+
+
+
+
+/* ===== DERECHA ===== */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-crear  {
+  min-width: 36px;
+  height: 36px;
+  padding: 12px 16px;
+
+  border-radius: 999px;
+  background: rgba(20, 20, 20, 0.90);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-crear:hover {
+  background: #3f3f3f;
+}
+
+
+
+.btm_menu {
+  display: flex;
+  align-items: center;
+}
+
+/* El botón con el diseño e interactividad circular de YouTube */
+.btm_menu button#menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px; /* Ajusta el espacio interno para el tamaño del SVG */
+  border: none;
+  border-radius: 50%; /* Hace que el fondo sea perfectamente circular */
+  background: transparent; /* Quita el fondo blanco cuadrado */
+  color: #ffffff; /* Color del icono (cambia a #0f0f0f si usas modo claro) */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+/* Forzar que el icono de las tres líneas sea blanco */
+.btm_menu button#menu svg {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Efecto hover interactivo de YouTube */
+.btm_menu button#menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto active al hacer clic */
+.btm_menu button#menu:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 📱 CELULARES */
+@media (max-width: 480px) {
+
+  body {
+    background-image: url("../png/fondo_2.jpeg");
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 36px; /* Reducido un poco para que no ocupe toda la pantalla del móvil */
+    margin-bottom: 15px;
+  }
+
+  .pantalla {
+    padding: 15px;
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-top: 60px; /* Asegura espacio debajo del header en móviles */
+  }
+
+  .cuadro {
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+  }
+
+  .grande {
+    width: 100%;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+  }
+
+  /* 👈 CONFIGURACIÓN PARA DOS COLUMNAS CENTRADAS */
+  .grid {
+    display: flex;
+    grid-template-columns: repeat(2, 125px); /* Forza exactamente 2 columnas del tamaño de tu card */
+    margin-left: 15px;                /* Centra el bloque de dos columnas en la pantalla */
+    gap: 20px;                               /* Espaciado uniforme entre los cuadros */
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  /* 👈 CORRECCIÓN DEL TAMAÑO DE LAS TARJETAS */
+  .card {
+    width: 165px;  /* Mantiene el tamaño cuadrado perfecto */
+    height: 165px; /* Mantiene el tamaño cuadrado perfecto */
+    padding: 10px; /* Reducido para que el texto quepa perfectamente dentro del móvil */
+    font-size: 14px; /* Ajusta el texto al tamaño de la pantalla del celular */
+  }
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/png" href="./png/RDP.png">
+
+  <title>El Rincon de los Poemas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="poema-box">
+    <h1 id="titulo-poema"></h1>
+    <p id="autor-poema"></p>
+    <pre id="texto-poema"></pre>
+    <p id="fecha-poema"></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+      // crear cliente INMEDIATO (sin delay)
+      window.client = supabase.createClient(
+        "https://cgbwdcwfjrtjqmmstnrr.supabase.co",
+        "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+      );
+    </script>
+<script src="scripts.js"></script>
+</body>
+</html>

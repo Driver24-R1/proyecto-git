@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Poemas</title>
+    <link rel="icon" type="image/png" href="../png/logo.png">
+    <link rel="stylesheet" href="list.css">
+  </head>
+  <body>
+
+    <div class="pantalla">
+      <div id="lista">
+        <div id="contenedor-poemas" class="grid"></div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <div class="star">
+          <div class="btm_menu">
+            <button id="menu">
+              <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                <path d="M20 5H4a1 1 0 000 2h16a1 1 0 100-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="logo">
+            <img src="../png/logo.png" alt="Poemas">
+          </div>
+        </div>
+
+
+
+        <div class="center">
+        </div>
+
+        <nav class="conterniner-acciones">
+          <div class="btn-crear" id="crear">+ Crear</div>
+
+          <div class="user-wrapper">
+            <input type="checkbox" id="btn-user">
+
+            <label for="btn-user" id="user-btn" class="user-circle" height="32" width="32">
+              Acceder
+            </label>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="conteriner-menu">
+      </path>
+    </div>
+
+    <audio id="audio"></audio>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  window.client = supabase.createClient(
+    "https://cgbwdcwfjrtjqmmstnrr.supabase.co", 
+    "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+  );
+</script>
+<script src="list.js"></script>
+  </body>
+</html>

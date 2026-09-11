@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/png" href="./png/RDP.png">
+
+  <title>El Rincon de los Poemas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- INPUT CONTROLADOR (OBLIGATORIO AQUÍ) -->
+  <!--<input type="checkbox" id="btn-menu">-->
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+
+      <div class="star">
+          <div class="btm_menu">
+            <button id="menu">
+              <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                <path d="M20 5H4a1 1 0 000 2h16a1 1 0 100-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="logo">
+          <img src="png/RDP.png" alt="El Rincon de los Poemas" class="icon-RDP">
+        </div>
+        </div>
+
+      <div class="center">
+        <form method="post" class="BuscarForm">
+          <input id="buscar" type="text" placeholder="Buscar" autocorrect="off" aria-autocomplete="list" autocomplete="off">
+        </form>
+
+        <button id="shear-btn" aria-label="Search" class="toggle-buscar">
+          <span class="IconWrapperHost">
+            <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+              <svg height="24" viewBox="0 0 24 24" width="24" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                <path d="M11 2a9 9 0 105.641 16.01.966.966 0 00.152.197l3.5 3.5a1 1 0 101.414-1.414l-3.5-3.5a1 1 0 00-.197-.153A8.96 8.96 0 0020 11a9 9 0 00-9-9Zm0 2a7 7 0 110 14 7 7 0 010-14Z"></path>
+              </svg>
+            </div>
+          </span>
+        </button>
+        <!-- 🔽 SUGERENCIAS -->
+      <div id="sugerencias" class="sugerencias"></div>
+      </div>
+
+      <nav class="menu">
+        <div class="btn-crear" id="crear">+ Crear</div>
+
+        <div class="user-wrapper">
+          <input type="checkbox" id="btn-user">
+
+          <label for="btn-user" id="user-btn" class="user-circle" height="32" width="32">
+            Acceder
+          </label>
+
+          <div class="user-menu">
+            <nav>
+              <!--<a href="#">Mi perfil</a>
+              <a href="#">Configuración</a>-->
+              <a href="#" id="mis-poemas">Mis poemas</a>
+              <a href="#" id="cerrar">Cerrar sesión</a>
+            </nav>
+          </div>
+        </div>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MENU LATERAL (HERMANO DEL INPUT) -->
+  <div class="container-menu">
+    <div class="cont-menu">
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Poemas</a>
+        <a href="#">Diarios</a>
+        <a href="#">Suscribirse</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </nav>
+    </div>
+  </div>
+
+  <div id="grid-poemas" class="poemas-grid">
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+      // crear cliente INMEDIATO (sin delay)
+      window.client = supabase.createClient(
+        "https://cgbwdcwfjrtjqmmstnrr.supabase.co",
+        "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+      );
+    </script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

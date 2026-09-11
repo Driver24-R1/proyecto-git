@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    background-image: url("../png/fondo_1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+
+    min-height: 100vh;
+}
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* evita que toque los bordes */
+  box-sizing: border-box;
+  z-index: 9999;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  min-height: 100vh;       /* Fuerza a que el fondo ocupe toda la pantalla */
+}
+
+/* CUADRO */
+.cuadro-poema {
+  background: rgba(255,255,255,0.1);
+  width: fit-content;
+  max-width: 90%;
+  min-width: 300px;
+  max-height: 85vh; 
+  
+  /* Aquí corregí tu calc() eliminando las comillas, ahora sí funcionará */
+  padding: calc(1vw + 10px); 
+  
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  
+  /* 👈 Agrega esto para asegurar el centrado en cualquier flujo */
+  margin: auto; 
+}
+
+
+
+/* BOTÓN CERRAR */
+#cerrar {
+  float: right;
+  border: none;
+  background: none;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px 13px;
+  font-size: 16px;
+}
+#cerrar:hover {
+  padding: 8px 13px;
+  background: gray;
+}
+
+#titulo-poema {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+/* FECHA */
+.fecha {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+
+/* TEXTO */
+#texto-poema {
+  white-space: pre-wrap;
+}
+.fila {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* 🎯 AQUÍ SE ACTIVA EL CENTRADO ABSOLUTO SOLO EN MÓVILES */
+  .modal {
+    margin-top: -40px; /* 👈 Sube el cuadro 30 píxeles hacia arriba */
+    display: flex;
+    justify-content: center; /* Centra el cuadro horizontalmente */
+    align-items: center;     /* Centra el cuadro verticalmente en el medio */
+    height: 100vh;           /* Fuerza a usar todo el alto del celular */
+  }
+
+  /* Asegura que el cuadro responda bien al centrado del padre */
+  .cuadro-poema {
+    margin: 0; 
+    max-height: 80vh;        /* Evita que se salga de la pantalla del móvil */
+  }
+
+  #titulo-poema {
+    font-size: 20px;
+  }
+
+  .fecha {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  #texto-poema {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  #cerrar {
+    padding: 6px 11px;
+    font-size: 14px;
+  }
+}

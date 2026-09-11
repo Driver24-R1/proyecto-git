@@ -1,0 +1,105 @@
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#0f0f0f;
+    --text:#fff;
+    --gray:#aaa;
+}
+
+/* ===== BODY ===== */
+body{
+    background:url("png/fondo.png") center/cover no-repeat fixed;
+    color:var(--text);
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    min-height:100vh;
+    padding:30px 15px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* evita que toque los bordes */
+  box-sizing: border-box;
+  z-index: 9999;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  min-height: 100vh;       /* Fuerza a que el fondo ocupe toda la pantalla */
+}
+
+/* ===== CONTENEDOR ===== */
+.poema-box{
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  width: fit-content;
+  max-width: 90%;
+  min-width: 400px;
+  max-height: 85vh; 
+  background:rgba(20,20,20,.9);
+  border-radius:16px;
+  padding:30px;
+}
+
+/* ===== TITULO ===== */
+#titulo-poema{
+    font-size:clamp(1.8rem,4vw,2.5rem);
+    text-align:center;
+    margin-bottom:10px;
+}
+
+/* ===== AUTOR ===== */
+#autor-poema{
+    text-align:center;
+    font-style:italic;
+    color:var(--gray);
+    margin-bottom:25px;
+}
+
+/* ===== TEXTO ===== */
+
+#texto-poema{
+    white-space: pre-wrap;
+
+    font-family:"Courier New",monospace;
+
+    font-size:14px;
+    line-height:1.02;
+}
+
+/* ===== FECHA ===== */
+#fecha-poema{
+  margin-top:25px;
+  text-align:right;
+  color:var(--gray);
+  font-size:.9rem;
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .poema-box{
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    #texto-poema{
+      font-size: 14px;
+    }
+
+}

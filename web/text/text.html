@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Poemas</title>
+    <link rel="icon" type="image/png" href="../png/logo.png">
+    <link rel="stylesheet" href="text.css">
+  </head>
+  <body>
+      <!-- CUADRO DEL POEMA -->
+    <div id="modal-poema" class="modal">
+      <div class="cuadro-poema">
+        <button id="cerrar">✖</button>
+        <h2 id="titulo-poema"></h2>
+        <p id="texto-poema"></p>
+        <div class="fila">
+          <p id="fecha-poema" class="fecha"></p>
+          <p id="autor-poema" class="fecha"></p>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audio"></audio>
+    <div id="contenedor-youtube"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+      // crear cliente INMEDIATO (sin delay)
+      window.client = supabase.createClient(
+        "https://cgbwdcwfjrtjqmmstnrr.supabase.co",
+        "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+      );
+    </script>
+    <script src="text.js"></script>
+  </body>
+</html>

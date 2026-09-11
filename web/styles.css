@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    /* IMAGEN DE FONDO */
+    background-image: url("./png/fondo_1.jpeg");
+
+    /* AJUSTAR IMAGEN */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+
+    height: 100vh;
+}
+
+/* CENTRAR TODO */
+.pantalla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CUADRO PRINCIPAL */
+.cuadro {
+    /* EFECTO VIDRIO */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+/* TAMAÑO */
+.grande {
+    width: 500px;
+}
+
+/* TITULO */
+h1 {
+    color: #000000;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+/* SUBTITULO */
+.subtitulo {
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 20px;
+}
+
+/* MENSAJE */
+.mensaje {
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 18px;
+}
+
+/* OCULTAR */
+.oculto {
+    display: none;
+}
+
+/* BOTONES */
+.botones button {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #000000;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.botones button:hover {
+  transform: scale(1.05);
+  background: #ffffff;
+  color: black;
+}
+
+/* 📱 CELULARES */
+@media (max-width: 768px) {
+
+  body {
+    background-image: url("png/fondo_2.jpeg");
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .pantalla {
+    padding: 50px;
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .cuadro {
+        width: 100%;
+        padding: 25px;
+        border-radius: 15px;
+        box-sizing: border-box;
+  }
+
+  .grande {
+        width: 100%;
+  }
+
+  h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+  }
+
+  .subtitulo {
+        font-size: 16px;
+        margin-bottom: 15px;
+  }
+
+  .mensaje {
+        font-size: 15px;
+        margin-bottom: 15px;
+  }
+
+  .botones button {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+}
