@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fffafb;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.contenedor-web {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* --- BARRA DE BOTONES SUPERIORES --- */
+.controles-superiores {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 200;
+}
+
+.boton-interactivo {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    transition: transform 0.2s, background 0.2s;
+    font-size: 14px;
+}
+.escaner-btn { background: #4dabf7; box-shadow: 0 4px 15px rgba(77, 171, 247, 0.3); }
+.boton-interactivo:hover { transform: scale(1.05); }
+
+/* --- CONTENEDOR INICIAL --- */
+#contenedor-inicial {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 100; background-color: #fffafb;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* --- MOSAICO EN TODA LA PANTALLA --- */
+.mosaico-pantalla {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Distribuye flores en toda la pantalla */
+    gap: 25px;
+    padding: 90px 30px 40px 30px; /* Espacio para los botones de arriba */
+    height: 100vh;
+    box-sizing: border-box;
+    align-content: center;
+    justify-items: center;
+    overflow-y: auto;
+}
+.mosaico-pantalla.activa { display: grid; }
+
+.flor-pantalla {
+    font-size: 55px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: brotar 0.5s forwards ease-out;
+}
+.flor-pantalla:hover { transform: scale(1.25); }
+@keyframes brotar { to { opacity: 1; transform: scale(1); } }
+
+/* --- PANTALLA CUANDO SE "COMEN" LAS FLORES (CARTA ÚNICA) --- */
+.pantalla-carta-unica {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffafb;
+    z-index: 150;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.pantalla-carta-unica.mostrar { display: flex; }
+
+.bloque-carta-blanca {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.15);
+    text-align: center;
+    color: #4a4a4a;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6;
+    border: 1px solid #ffe3e6;
+    animation: abrirCarta 0.4s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes abrirCarta { from { transform: scale(0.8); } to { transform: scale(1); } }
+.bloque-carta-blanca h2 { font-size: 50px; margin: 0 0 15px 0; }
+
+.boton-regresar {
+    margin-top: 25px;
+    background: #ffd1d7;
+    color: #ff5252;
+    border: 2px solid #ffb3bc;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- VENTANA MODAL PARA LA CÁMARA (QR/BARRAS) --- */
+.modal-camara {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 300;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.contenido-modal {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+#lector-camara {
+    width: 100%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* --- DISEÑO COMPACTO FLOR CENTRAL --- */
+.flor-completa { position: relative; width: 120px; height: 120px; cursor: pointer; user-select: none; }
+.centro { position: absolute; width: 40px; height: 40px; background-color: #fcc419; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 12; }
+.petalo { position: absolute; width: 30px; height: 55px; background-color: #ff6b6b; border-radius: 50%; top: 50%; left: 50%; transform-origin: center 55px; transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease; z-index: 11; }
+.p1 { transform: translate(-50%, -55px) rotate(0deg); }
+.p2 { transform: translate(-50%, -55px) rotate(60deg); }
+.p3 { transform: translate(-50%, -55px) rotate(120deg); }
+.p4 { transform: translate(-50%, -55px) rotate(180deg); }
+.p5 { transform: translate(-50%, -55px) rotate(240deg); }
+.p6 { transform: translate(-50%, -55px) rotate(300deg); }
+.flor-completa.dispersar .centro { opacity: 0; pointer-events: none; }
+.flor-completa.dispersar .p1 { transform: translate(-150px, -180px) rotate(-60deg); opacity: 0; }
+.flor-completa.dispersar .p2 { transform: translate(180px, -150px) rotate(100deg); opacity: 0; }
+.flor-completa.dispersar .p3 { transform: translate(150px, 150px) rotate(140deg); opacity: 0; }
+.flor-completa.dispersar .p4 { transform: translate(-50px, 200px) rotate(240deg); opacity: 0; }
+.flor-completa.dispersar .p5 { transform: translate(-180px, 90px) rotate(-140deg); opacity: 0; }
+.flor-completa.dispersar .p6 { transform: translate(-90px, -200px) rotate(80deg); opacity: 0; }
+.instruccion { position: absolute; bottom: -50px; width: 160px; left: 50%; transform: translateX(-50%); text-align: center; color: #ff6b6b; font-weight: bold; font-size: 16px; }
+.flor-completa.dispersar .instruccion { display: none; }
+
+/* Optimización iPhone XS */
+@media (max-width: 450px) {
+    .mosaico-pantalla { grid-template-columns: repeat(auto-fit, minmax(65px, 1fr)); gap: 15px; padding-top: 100px; }
+    .flor-pantalla { font-size: 45px; }
+    .bloque-carta-blanca { font-size: 17px; padding: 25px; }
+}

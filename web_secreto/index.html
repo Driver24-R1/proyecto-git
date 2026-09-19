@@ -1,13 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fecha</title>
-  </head>
-  <body>
-    <div class="cuadro-d-3" id="xd">
-      
+    <title>Para Alguien Especial 🌻</title>
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Música de fondo -->
+    <audio id="musica-fondo" src="musica.mp3" loop></audio>
+
+    <!-- Botones de Control Superiores -->
+    <div class="controles-superiores">
+        <button id="btn-musica" class="boton-interactivo">
+            🎵 Música
+        </button>
+
+        <button id="btn-escanear" class="boton-interactivo escaner-btn">
+            📷 Escanear QR / Barras
+        </button>
     </div>
-  </body>
-</html>,
+
+    <div class="contenedor-web">
+
+        <!-- Flor principal -->
+        <div id="contenedor-inicial">
+            <div id="flor-interactiva" class="flor-completa">
+                <div class="centro"></div>
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+
+                <span class="instruccion">
+                    ¡Hazme clic!
+                </span>
+            </div>
+        </div>
+
+        <!-- Pantalla de flores -->
+        <div id="pantalla-flores" class="mosaico-pantalla"></div>
+
+        <!-- Carta -->
+        <div id="contenedor-carta-abierta" class="pantalla-carta-unica">
+
+            <div id="contenido-carta" class="bloque-carta-blanca"></div>
+
+            <button id="btn-volver" class="boton-regresar">
+                🌸 Ver otras flores
+            </button>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- MODAL DEL ESCÁNER -->
+        <!-- ============================= -->
+
+        <div id="modal-escaner" class="modal-camara">
+
+            <div class="contenido-modal">
+
+                <h3>
+                    📷 Escanea tu código
+                </h3>
+
+                <p>
+                    Coloca el código de barras dentro del recuadro
+                </p>
+
+                <!-- Aquí aparecerá la cámara -->
+                <div id="lector-camara"></div>
+
+                <button id="btn-cerrar-escaner" class="boton-regresar">
+                    ❌ Cerrar Cámara
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- LIBRERÍA HTML5 QR CODE -->
+    <!-- ================================= -->
+
+    <!--
+        IMPORTANTE:
+        Este archivo debe estar en la MISMA carpeta que este HTML.
+    -->
+        <!-- ================================= -->
+    <!-- LIBRERÍA HTML5 QR CODE -->
+    <!-- ================================= -->
+
+    <!--
+        IMPORTANTE:
+        Este archivo debe estar en la MISMA carpeta que este HTML.
+    -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+
+    <!-- CAMBIO: Cargamos Supabase desde unpkg para evitar el error de conexión TIMED_OUT -->
+    <script src="https://unpkg.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        window.client = supabase.createClient(
+            "https://cgbwdcwfjrtjqmmstnrr.supabase.co", 
+            "sb_publishable_9q1kZWMdx-brKCUtUIZ5Cg_SRcno31d"
+        );
+    </script>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
