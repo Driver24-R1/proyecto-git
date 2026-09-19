@@ -1,15 +1,20 @@
+/* ==========================================
+   CONFIGURACIÓN GENERAL (Base para PC y Móvil)
+   ========================================== */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #fffafb;
     overflow: hidden;
     height: 100vh;
+    height: -webkit-fill-available; /* Solución para Safari en iPhone */
 }
 
 .contenedor-web {
     width: 100%;
     height: 100vh;
+    height: -webkit-fill-available;
     position: relative;
 }
 
@@ -21,7 +26,7 @@ body {
     right: 20px;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     z-index: 200;
 }
 
@@ -29,18 +34,19 @@ body {
     background: #ff6b6b;
     color: white;
     border: none;
-    padding: 12px 18px;
+    padding: 12px 22px;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
     transition: transform 0.2s, background 0.2s;
-    font-size: 14px;
+    font-size: 15px;
+    -webkit-tap-highlight-color: transparent; /* Quita parpadeo gris en iOS */
 }
 .escaner-btn { background: #4dabf7; box-shadow: 0 4px 15px rgba(77, 171, 247, 0.3); }
 .boton-interactivo:hover { transform: scale(1.05); }
 
-/* --- CONTENEDOR INICIAL --- */
+/* --- PANTALLA INICIAL (FLOR CENTRAL) --- */
 #contenedor-inicial {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100vh;
@@ -49,12 +55,13 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* --- MOSAICO EN TODA LA PANTALLA --- */
+/* --- MOSAICO DE FLORES (Por defecto estilo PC) --- */
 .mosaico-pantalla {
     display: none;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Distribuye flores en toda la pantalla */
+    /* En PC se distribuyen automáticamente según el espacio disponible */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
     gap: 25px;
-    padding: 90px 30px 40px 30px; /* Espacio para los botones de arriba */
+    padding: 100px 40px 40px 40px; 
     height: 100vh;
     box-sizing: border-box;
     align-content: center;
@@ -67,15 +74,17 @@ body {
     font-size: 55px;
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none;
     transition: transform 0.2s;
     opacity: 0;
     transform: scale(0.5);
     animation: brotar 0.5s forwards ease-out;
+    -webkit-tap-highlight-color: transparent;
 }
 .flor-pantalla:hover { transform: scale(1.25); }
 @keyframes brotar { to { opacity: 1; transform: scale(1); } }
 
-/* --- PANTALLA CUANDO SE "COMEN" LAS FLORES (CARTA ÚNICA) --- */
+/* --- PANTALLA CARTA SORPRESA --- */
 .pantalla-carta-unica {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100vh;
@@ -103,6 +112,7 @@ body {
     font-size: 20px;
     line-height: 1.6;
     border: 1px solid #ffe3e6;
+    box-sizing: border-box;
     animation: abrirCarta 0.4s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 @keyframes abrirCarta { from { transform: scale(0.8); } to { transform: scale(1); } }
@@ -117,9 +127,10 @@ body {
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* --- VENTANA MODAL PARA LA CÁMARA (QR/BARRAS) --- */
+/* --- MODAL PARA LA CÁMARA --- */
 .modal-camara {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100vh;
@@ -144,8 +155,8 @@ body {
     overflow: hidden;
 }
 
-/* --- DISEÑO COMPACTO FLOR CENTRAL --- */
-.flor-completa { position: relative; width: 120px; height: 120px; cursor: pointer; user-select: none; }
+/* --- ANIMACIÓN FLOR CENTRAL (Tamaño PC) --- */
+.flor-completa { position: relative; width: 120px; height: 120px; cursor: pointer; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
 .centro { position: absolute; width: 40px; height: 40px; background-color: #fcc419; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 12; }
 .petalo { position: absolute; width: 30px; height: 55px; background-color: #ff6b6b; border-radius: 50%; top: 50%; left: 50%; transform-origin: center 55px; transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease; z-index: 11; }
 .p1 { transform: translate(-50%, -55px) rotate(0deg); }
@@ -154,6 +165,7 @@ body {
 .p4 { transform: translate(-50%, -55px) rotate(180deg); }
 .p5 { transform: translate(-50%, -55px) rotate(240deg); }
 .p6 { transform: translate(-50%, -55px) rotate(300deg); }
+
 .flor-completa.dispersar .centro { opacity: 0; pointer-events: none; }
 .flor-completa.dispersar .p1 { transform: translate(-150px, -180px) rotate(-60deg); opacity: 0; }
 .flor-completa.dispersar .p2 { transform: translate(180px, -150px) rotate(100deg); opacity: 0; }
@@ -161,12 +173,72 @@ body {
 .flor-completa.dispersar .p4 { transform: translate(-50px, 200px) rotate(240deg); opacity: 0; }
 .flor-completa.dispersar .p5 { transform: translate(-180px, 90px) rotate(-140deg); opacity: 0; }
 .flor-completa.dispersar .p6 { transform: translate(-90px, -200px) rotate(80deg); opacity: 0; }
+
 .instruccion { position: absolute; bottom: -50px; width: 160px; left: 50%; transform: translateX(-50%); text-align: center; color: #ff6b6b; font-weight: bold; font-size: 16px; }
 .flor-completa.dispersar .instruccion { display: none; }
 
-/* Optimización iPhone XS */
+
+/* ==========================================
+   OPTIMIZACIONES ESPECÍFICAS PARA IPHONE XS 
+   (Pantallas menores a 450px de ancho)
+   ========================================== */
 @media (max-width: 450px) {
-    .mosaico-pantalla { grid-template-columns: repeat(auto-fit, minmax(65px, 1fr)); gap: 15px; padding-top: 100px; }
-    .flor-pantalla { font-size: 45px; }
-    .bloque-carta-blanca { font-size: 17px; padding: 25px; }
+    /* Ajuste para el notch del iPhone XS */
+    .controles-superiores {
+        top: calc(15px + env(safe-area-inset-top));
+        left: calc(15px + env(safe-area-inset-left));
+        right: calc(15px + env(safe-area-inset-right));
+        gap: 8px;
+    }
+    
+    .boton-interactivo {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    /* Mosaico forzado a 4 columnas estéticas en iPhone XS */
+    .mosaico-pantalla {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding: calc(85px + env(safe-area-inset-top)) calc(15px + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(15px + env(safe-area-inset-left));
+        align-content: start;
+        -webkit-overflow-scrolling: touch; /* Scroll suave iOS */
+    }
+
+    .flor-pantalla {
+        font-size: 42px;
+    }
+    .flor-pantalla:hover { transform: scale(1.15); }
+
+    /* Reducción de la carta para que no se desborde en el teléfono */
+    .pantalla-carta-unica {
+        padding: calc(20px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left));
+    }
+
+    .bloque-carta-blanca {
+        max-width: 335px; /* Tamaño ideal para los 375px de ancho del iPhone XS */
+        padding: 25px;
+        font-size: 16px;
+    }
+    .bloque-carta-blanca h2 { font-size: 38px; }
+
+    /* Flor central un poco más pequeña para pantallas de móvil */
+    .flor-completa { width: 100px; height: 100px; }
+    .centro { width: 34px; height: 34px; }
+    .petalo { width: 26px; height: 48px; transform-origin: center 48px; }
+    .p1 { transform: translate(-50%, -48px) rotate(0deg); }
+    .p2 { transform: translate(-50%, -48px) rotate(60deg); }
+    .p3 { transform: translate(-50%, -48px) rotate(120deg); }
+    .p4 { transform: translate(-50%, -48px) rotate(180deg); }
+    .p5 { transform: translate(-50%, -48px) rotate(240deg); }
+    .p6 { transform: translate(-50%, -48px) rotate(300deg); }
+
+    .flor-completa.dispersar .p1 { transform: translate(-100px, -140px) rotate(-60deg); }
+    .flor-completa.dispersar .p2 { transform: translate(120px, -110px) rotate(100deg); }
+    .flor-completa.dispersar .p3 { transform: translate(100px, 110px) rotate(140deg); }
+    .flor-completa.dispersar .p4 { transform: translate(-30px, 140px) rotate(240deg); }
+    .flor-completa.dispersar .p5 { transform: translate(-120px, 60px) rotate(-140deg); }
+    .flor-completa.dispersar .p6 { transform: translate(-60px, -140px) rotate(80deg); }
+
+    .instruccion { bottom: -45px; font-size: 14px; }
 }
